@@ -15,7 +15,7 @@
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</rights>
   </info>
 
-  <!-- Locale principal: es-ES -->
+  <!-- Locale principal es-ES para asegurar ed./eds. y "y" -->
   <locale xml:lang="es-ES">
     <terms>
       <term name="and">y</term>
@@ -28,7 +28,7 @@
       <term name="available at">Disponible en</term>
     </terms>
   </locale>
-  <!-- Compatibilidad con es genérico -->
+  <!-- Compatibilidad extra (no imprescindible) -->
   <locale xml:lang="es">
     <terms>
       <term name="and">y</term>
@@ -42,7 +42,7 @@
     </terms>
   </locale>
 
-  <!-- Autores en bibliografía: tal como ya te funcionaba -->
+  <!-- Autores en bibliografía: nombres desarrollados, como ya te funcionaba -->
   <macro name="author">
     <names variable="author" and="text" delimiter="; " delimiter-precedes-last="always">
       <name name-as-sort-order="all" sort-separator=", " initialize="false" initialize-with=". "/>
@@ -66,19 +66,19 @@
     </names>
   </macro>
 
-  <!-- Editores para capítulos: iniciales + apellido, con (ed.)/(eds.) y punto correcto -->
+  <!-- EDITORES: iniciales + apellido; “y”; y etiqueta cerrada con "). " para producir (ed.). / (eds.). -->
   <macro name="editor">
-    <names variable="editor" and="text" delimiter=" y " delimiter-precedes-last="always">
+    <names variable="editor" and="text" delimiter=", " delimiter-precedes-last="never">
       <name initialize="true" initialize-with=". "/>
-      <label form="short" prefix=" (" suffix=")"/>
+      <label form="short" prefix=" (" suffix="). "/>
       <substitute>
-        <names variable="container-author" and="text" delimiter=" y " delimiter-precedes-last="always">
+        <names variable="container-author" and="text" delimiter=", " delimiter-precedes-last="never">
           <name initialize="true" initialize-with=". "/>
-          <label form="short" prefix=" (" suffix=")"/>
+          <label form="short" prefix=" (" suffix="). "/>
         </names>
-        <names variable="collection-editor" and="text" delimiter=" y " delimiter-precedes-last="always">
+        <names variable="collection-editor" and="text" delimiter=", " delimiter-precedes-last="never">
           <name initialize="true" initialize-with=". "/>
-          <label form="short" prefix=" (" suffix=")"/>
+          <label form="short" prefix=" (" suffix="). "/>
         </names>
       </substitute>
     </names>
@@ -185,8 +185,8 @@
           <group prefix=" ">
             <text macro="title" suffix=". "/>
             <text value="En: "/>
-            <!-- Editores con iniciales + apellido y etiqueta -->
-            <text macro="editor" suffix=". "/>
+            <!-- Editores con iniciales + apellido y etiqueta con punto final -->
+            <text macro="editor"/>
             <text variable="container-title" font-style="italic" suffix=", "/>
             <text term="page" form="short" suffix=" "/>
             <text variable="page" suffix=". "/>
