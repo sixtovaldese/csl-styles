@@ -54,7 +54,7 @@
   </macro>
   <macro name="editor">
     <names variable="editor">
-      <name form="short" and="text" delimiter=" y "/>
+      <name form="short" and="text" delimiter="; " initialize-with=". "/>
       <label form="short" prefix=" (" suffix=")"/>
     </names>
   </macro>
@@ -150,9 +150,7 @@
             <text macro="title" suffix=". "/>
             <text value="En: "/>
             <text macro="editor" suffix=". "/>
-            <text variable="container-title" font-style="italic" suffix=", "/>
-            <text term="page" form="short" suffix=" "/>
-            <text variable="page" suffix=". "/>
+            <text variable="container-title" font-style="italic" suffix=". "/>
             <text macro="publisher"/>
           </group>
         </else-if>
