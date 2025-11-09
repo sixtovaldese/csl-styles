@@ -9,7 +9,7 @@ A continuación se presenta una tabla con los estilos disponibles, una breve des
 | Revista | Nombre del Archivo | Descripción | Enlace de Instalación (URL Raw) |
 | :--- | :--- | :--- | :--- |
 | **Revista Española de Investigaciones Sociológicas (REIS)** | `revista-espanola-de-investigaciones-sociologicas.csl` | Adaptado a las normas de 2024. Formato `Apellido, Nombre (Año)`. | [**Copiar URL**](https://raw.githubusercontent.com/sixtovaldese/csl-styles/master/styles/revista-espanola-de-investigaciones-sociologicas.csl) |
-| *... (Añade una fila aquí cuando subas tu próximo estilo)* | *...* | *...* | *...* |
+| *... (próximos estilos)* | *...* | *...* | *...* |
 
 ---
 
