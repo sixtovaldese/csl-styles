@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="chicago" default-locale="es-ES">
-  <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
   <info>
     <title>Revista Española de Investigaciones Sociológicas (REIS)</title>
     <title-short>REIS</title-short>
@@ -17,7 +16,7 @@
     <category citation-format="author-date"/>
     <category field="sociology"/>
     <summary>Estilo adaptado para la Revista Española de Investigaciones Sociológicas (REIS), siguiendo las normas de 2024.</summary>
-    <updated>2025-11-09T19:00:00+00:00</updated>
+    <updated>2025-11-09T20:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</rights>
   </info>
   <locale xml:lang="es">
@@ -163,7 +162,11 @@
             <text variable="container-title" font-style="italic" suffix=", "/>
             <text variable="volume"/>
             <text variable="issue" prefix="(" suffix=")"/>
-            <text variable="page" prefix=": "/>
+            <choose>
+              <if variable="page">
+                <text variable="page" prefix=": "/>
+              </if>
+            </choose>
             <text macro="access" prefix=". "/>
           </group>
         </else-if>
