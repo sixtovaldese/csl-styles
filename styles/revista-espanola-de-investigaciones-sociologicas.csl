@@ -6,13 +6,8 @@
     <id>http://www.zotero.org/styles/revista-espanola-de-investigaciones-sociologicas</id>
     <link href="http://www.zotero.org/styles/revista-espanola-de-investigaciones-sociologicas" rel="self"/>
     <link href="https://reis.cis.es/index.php/REIS/about/submissions#directrices" rel="documentation"/>
-    <author>
-      <name>REIS Style</name>
-    </author>
-    <author>
-      <name>Sixto Valdés</name>
-      <email>sixtomarcelo@gmail.com</email>
-    </author>
+    <author><name>REIS Style</name></author>
+    <author><name>Sixto Valdés</name><email>sixtomarcelo@gmail.com</email></author>
     <category citation-format="author-date"/>
     <category field="sociology"/>
     <summary>Estilo adaptado para la Revista Española de Investigaciones Sociológicas (REIS), siguiendo las normas de 2024.</summary>
@@ -20,7 +15,7 @@
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</rights>
   </info>
 
-  <!-- Locale específico para es-ES para asegurar ed./eds. y "y" -->
+  <!-- Locale principal: es-ES -->
   <locale xml:lang="es-ES">
     <terms>
       <term name="and">y</term>
@@ -33,8 +28,7 @@
       <term name="available at">Disponible en</term>
     </terms>
   </locale>
-
-  <!-- (Opcional) mantenemos también es genérico por compatibilidad -->
+  <!-- Compatibilidad con es genérico -->
   <locale xml:lang="es">
     <terms>
       <term name="and">y</term>
@@ -48,10 +42,10 @@
     </terms>
   </locale>
 
+  <!-- Autores en bibliografía: tal como ya te funcionaba -->
   <macro name="author">
-    <names variable="author">
-      <!-- Conservamos nombres desarrollados (como en los ejemplos REIS) -->
-      <name name-as-sort-order="all" sort-separator=", " delimiter="; " delimiter-precedes-last="always" and="text" initialize="false" initialize-with=". "/>
+    <names variable="author" and="text" delimiter="; " delimiter-precedes-last="always">
+      <name name-as-sort-order="all" sort-separator=", " initialize="false" initialize-with=". "/>
       <label form="short" prefix=" (" suffix=")"/>
       <substitute>
         <names variable="editor"/>
@@ -62,8 +56,8 @@
   </macro>
 
   <macro name="author-short">
-    <names variable="author">
-      <name form="short" and="text" delimiter=", "/>
+    <names variable="author" and="text" delimiter=", ">
+      <name form="short"/>
       <substitute>
         <names variable="editor"/>
         <names variable="translator"/>
@@ -72,11 +66,21 @@
     </names>
   </macro>
 
-  <!-- EDITORES: iniciales + apellido, unidos por " y ", etiqueta (ed.)/(eds.) -->
+  <!-- Editores para capítulos: iniciales + apellido, con (ed.)/(eds.) y punto correcto -->
   <macro name="editor">
-    <names variable="editor">
-      <name and="text" delimiter=" y " initialize="true" initialize-with=". "/>
+    <names variable="editor" and="text" delimiter=" y " delimiter-precedes-last="always">
+      <name initialize="true" initialize-with=". "/>
       <label form="short" prefix=" (" suffix=")"/>
+      <substitute>
+        <names variable="container-author" and="text" delimiter=" y " delimiter-precedes-last="always">
+          <name initialize="true" initialize-with=". "/>
+          <label form="short" prefix=" (" suffix=")"/>
+        </names>
+        <names variable="collection-editor" and="text" delimiter=" y " delimiter-precedes-last="always">
+          <name initialize="true" initialize-with=". "/>
+          <label form="short" prefix=" (" suffix=")"/>
+        </names>
+      </substitute>
     </names>
   </macro>
 
@@ -155,7 +159,6 @@
     </layout>
   </citation>
 
-  <!-- Bibliografía: hasta 20 autores/as; si >20, imprime 20 y (por el motor) et al./equivalente -->
   <bibliography hanging-indent="false" et-al-min="21" et-al-use-first="20" entry-spacing="0">
     <sort>
       <key macro="author"/>
@@ -182,7 +185,7 @@
           <group prefix=" ">
             <text macro="title" suffix=". "/>
             <text value="En: "/>
-            <!-- Editores con iniciales + apellido -->
+            <!-- Editores con iniciales + apellido y etiqueta -->
             <text macro="editor" suffix=". "/>
             <text variable="container-title" font-style="italic" suffix=", "/>
             <text term="page" form="short" suffix=" "/>
